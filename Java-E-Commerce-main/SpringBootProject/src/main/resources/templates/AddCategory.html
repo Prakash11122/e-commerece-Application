@@ -1,0 +1,43 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <!-- Title Page-->
+    <title>Add Categories</title>
+
+
+</head>
+<body>
+<section class="section-products">
+    <div class="container py-5">
+        <div class="wrapper wrapper--w900">
+            <div class="card" style="width: 45rem;">
+                <div class="card-body">
+        <form class="form-inline" method="post" th:action="@{/addCategory}" th:object="${category}">
+            <div class="form-row">
+                <div class="value"><h2><b>Add category</b></h2>
+                    <br><p class="color">fill this form to add category</p></div>
+            </div>
+            <input type="hidden" style="padding-top:20px;" th:field="*{Cid}" name="id" class="form-control" id="exampleInputId1"
+                   placeholder="Password">
+            <div class="value">
+                <div class="input-group">
+                    <input class="input--style-6"  type="text" name="category" th:field="*{Cname}" placeholder="Category name"
+                           required>
+                </div>
+            </div>
+            <div class="value">
+                <div class="input-group">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

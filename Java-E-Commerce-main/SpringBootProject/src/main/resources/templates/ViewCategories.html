@@ -1,0 +1,36 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <!-- Title Page-->
+    <title>categories</title>
+
+
+</head>
+<body>
+<section class="section-products">
+    <div class="container py-5">
+        <a th:href="@{/addCategory}" class="btn btn-primary">Add Category</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">SN</th>
+                <th scope="col">Category Name</th>
+                <th scope="col">Manage Delete</th>
+                <th scope="col">Manege Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="Cat, iStat : ${categories}">
+                <th scope="row" th:text="${iStat.index +1}">1</th>
+                <td th:text="${Cat.Cname}"></td>
+                <td><a href="" th:href="@{/deleteCategory?(id=${Cat.Cid})}" class="btn btn-danger">Delete</a></td>
+                <td><a href=""  th:href="@{/updateCategory?(id=${Cat.Cid})}" class="btn btn-warning">Update</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

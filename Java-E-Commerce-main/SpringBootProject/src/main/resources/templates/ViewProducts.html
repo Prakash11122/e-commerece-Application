@@ -1,0 +1,48 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <!-- Title Page-->
+    <title>categories</title>
+
+
+</head>
+<body>
+<section class="section-products">
+    <div class="container py-5">
+        <a th:href="@{/addProduct}" class="btn btn-primary">Add Product</a>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">SN</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Price</th>
+                <th scope="col">Made-in</th>
+                <th scope="col">Description</th>
+                <th scope="col">Manage Delete</th>
+                <th scope="col">Manege Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pro, iStat : ${products}">
+                <th scope="row" th:text="${iStat.index +1}">1</th>
+                <td th:text="${pro.category.Cname}"></td>
+                <td><img th:src="@{${pro.photosImagePath}}" width="150px" height="150px"></td>
+                <td th:text="${pro.Pname}"></td>
+                <td th:text="${pro.Pbrand}"></td>
+                <td th:text="${pro.Pprice}"></td>
+                <td th:text="${pro.Pmadein}"></td>
+                <td th:text="${pro.Pdesc}"></td>
+                <td><a href="" th:href="@{/deleteProduct?(id=${pro.Pid})}" class="btn btn-danger">Delete</a></td>
+                <td><a href=""  th:href="@{/updateProduct?(id=${pro.Pid})}" class="btn btn-warning">Update</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

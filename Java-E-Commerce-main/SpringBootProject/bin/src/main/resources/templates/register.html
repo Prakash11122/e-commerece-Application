@@ -1,0 +1,87 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org" th:replace="base::layout(~{::section})"><head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <!-- Title Page-->
+    <title>Registration form</title>
+
+    <!-- Font special for pages-->
+
+    <!-- Main CSS-->
+</head>
+<body>
+<section>
+<div class="page-wrapper p-t-100 p-b-50" style="background-color:#3073c9;">
+    <div class="wrapper wrapper--w900">
+        <div class="card" style="width: 45rem;">
+            <div class="card-body">
+                <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+                    <div class="form-row">
+                        <div class="value"><h2><b>Sign Up</b></h2>
+                        <br><p style="color:#8a867d;">Please fill in this form to create an account! </p></div>
+                    </div>
+                    <div class="value">
+                    <div class="input-group">
+                            <div class="col" style="padding-right:20px;">
+                            <input placeholder="First Name" th:field="*{firstname}" class="input--style-6"
+                                   name="firstname" type="text" minlength="2" maxlength="12">
+                            </div>
+                            <div class="col">
+                            <input placeholder="Last Name" th:field="*{lastname}" class="input--style-6"
+                                   name="lastname"type="text" minlength="2" maxlength="12">
+                    </div>
+                    </div>
+                    </div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" th:field="*{email}" type="email" name="email"
+                                       placeholder="Email" required autofocus>
+                            </div>
+                        </div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-6 " th:field="*{password}" type="password"
+                                   name="password" placeholder="Password" minlength="6" maxlength="18">
+                        </div>
+                    </div>
+                    <div class="value">
+                        <div class="input-group">
+                            <input class="input--style-6 " type="password" th:field="*{confirmPassword}"
+                                   name="confirmPassword" placeholder="Confirm Password" minlength="6" maxlength="18">
+                        </div>
+                    </div>
+                    <div class="value">
+                        <div class="input-group">
+                                <label style="padding-right:5px;">Select Role</label>
+                                <Select class="input--style-6"  type="text" name="category" th:field="*{roles}"
+                                        placeholder="Select Role">
+                                    <option value="ROLE_ADMIN">USER</option>
+                                    <option value="ROLE_ADMIN">ADMIN</option>
+                                </Select>
+                        </div>
+                    </div>
+                    <div class="value">
+                        <div class="input-group">
+                           <label class="check" style="font-size:18px; color:#8a867d;">I accept the <a href="#">Terms of Use</a> & <a href="#">privacy Policy</a>.</span>
+                                <input type="checkbox" name="checkbox">
+                               <span class="checkmark"></span>
+                           </label>
+                        </div>
+                    </div>
+
+                    <div class="value">
+                        <div class="input-group">
+                            <button class="btn btn--radius-2 btn--blue-2" type="submit">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p1 style="color:#f5f6f7;font-size:20px; padding-left:255px;">Already have an account? <a th:href="@{login}" style="color:#f5f6f7;">Login here</a>.</p1>
+    </div>
+</div>
+
+<!-- Main JS-->
+</section>
+</body>
+</html>
